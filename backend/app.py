@@ -8,6 +8,7 @@ from index import index
 from login import login
 from logout import logout
 from register import register
+from redirect import redirect
 from home import home
 
 app = Flask(__name__, static_folder='../frontend/static')
@@ -24,6 +25,7 @@ app.register_blueprint(index)
 app.register_blueprint(login)
 app.register_blueprint(logout)
 app.register_blueprint(register)
+app.register_blueprint(redirect)
 app.register_blueprint(home)
 
 @login_manager.user_loader
