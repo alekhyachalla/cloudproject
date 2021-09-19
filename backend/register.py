@@ -11,6 +11,8 @@ login_manager.init_app(register)
 @register.route('/register', methods=['GET', 'POST'])
 def show():
     if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
@@ -25,6 +27,8 @@ def show():
                         username=username,
                         email=email,
                         password=hashed_password,
+                        first_name=first_name,
+                        last_name=last_name
                     )
 
                     db.session.add(new_user)
