@@ -44,7 +44,7 @@ def show():
 
                     db.session.add(new_user)
                     db.session.commit()
-                except sqlalchemy.exc.IntegrityError:
+                except:
                     return redirect(url_for('register.show') + '?error=user-or-email-exists')
 
                 return redirect(url_for('redirect.show'))
