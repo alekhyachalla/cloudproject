@@ -10,6 +10,7 @@ login_manager.init_app(login)
 
 @login.route('/login', methods=['GET', 'POST'])
 def show():
+    error="none"
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
