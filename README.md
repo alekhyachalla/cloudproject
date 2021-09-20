@@ -12,7 +12,7 @@ db.create_all()
 
 Running the app
 ```
-source ../env/bin/activate
+source /home/ubuntu/last_save/env/bin/activate
 cd /home/ubuntu/last_save/Flask-Login-Register/backend
 ./run.sh
 ```
