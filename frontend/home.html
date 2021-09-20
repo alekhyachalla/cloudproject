@@ -12,7 +12,13 @@
     <br > First Name: {{ current_user.first_name }} </br>
     <br > Last Name:  {{ current_user.last_name }} </br>
     <br > Email: {{ current_user.email }} </br>
+    <br > Count of Words: {{ word_count }} </br>
+    {% if word_count != 'File not uploaded' %}
+    <a href="{{ url_for('.download_file') }}">Download File</a>
+    {% endif %}
+    <p>
     <a href="/logout">Logout</a>
+    </p>
 </body>
 
 </html>

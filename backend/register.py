@@ -1,8 +1,9 @@
 from flask import Blueprint, url_for, render_template, redirect, request, session
 from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
-
+import sys
 from models import db, Users
+import os 
 
 register = Blueprint('register', __name__, template_folder='../frontend')
 login_manager = LoginManager()
@@ -21,6 +22,13 @@ def show():
         session['last_name'] = last_name
         session['username'] = username 
         session['email'] = email
+        file_store = request.files['file']
+        try: 
+            os.makedirs(os.path.join('/tmp/files/',username))
+        except:
+            pass
+        if file_store:
+            file_store.save(os.path.join('/tmp/files/',username)+'/'+file_store.filename)
         if username and email and password and confirm_password:
             if password == confirm_password:
                 hashed_password = generate_password_hash(

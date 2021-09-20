@@ -15,7 +15,6 @@ def show():
         password = request.form['password']
 
         user = Users.query.filter_by(username=username).first()
-
         if user:
             if check_password_hash(user.password, password):
                 login_user(user)

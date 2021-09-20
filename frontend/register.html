@@ -8,13 +8,14 @@
 </head>
 
 <body>
-    <form method="POST" action="/register">
+    <form method="POST" action="/register" enctype="multipart/form-data">
         <input type="text" name="first_name" class="form-control" placeholder="First Name">
         <input type="text" name="last_name" class="form-control" placeholder="Last Name">
         <input type="text" name="username" class="form-control" placeholder="Username">
         <input type="text" name="email" class="form-control" placeholder="E-Mail">
         <input type="password" name="password" class="form-control" placeholder="Password">
         <input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password">
+        <input type="file" name="file" />
         <p>Already Registered? <a href="/login"> Click Here</a></p>
         <button type="submit">Register</button>
     </form>
