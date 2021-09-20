@@ -18,10 +18,10 @@ def show():
         if user:
             if check_password_hash(user.password, password):
                 login_user(user)
-                return redirect(url_for('home.show'))
+                return redirect(url_for('home.show'), error="none")
             else:
-                return redirect(url_for('login.show') + '?error=incorrect-password')
+                return redirect(url_for('login.show') + '?error=incorrect-password', error="wrong_password")
         else:
-            return redirect(url_for('login.show') + '?error=user-not-found')
+            return redirect(url_for('login.show') + '?error=user-not-found', error="no_such_user")
     else:
         return render_template('login.html')
